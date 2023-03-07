@@ -41,13 +41,16 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>CreditCardValidate</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.11.0</version>
 					<configuration>
-						<mainClass>org.nts.assignment.CreditCardApplication</mainClass>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.source}</target>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -57,10 +60,6 @@
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>3.0.2</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -85,6 +84,14 @@
 				<plugin>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.0.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<mainClass>${start-class}</mainClass>
+						<layout>JAR</layout>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

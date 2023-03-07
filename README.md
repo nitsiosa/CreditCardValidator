@@ -25,17 +25,18 @@ Our preference would be to build the solution in Java, but you may use other lan
 You can use your own development environment
 
 ##### Solution
-The solution has been writen in Java please download the file and run ```mvn clean install``` to build 
+The solution has been writen in Java please download the file and run `mvn clean install` to build,`mvn javadoc:jar` to build javadoc and 
 
+
+`mvn package spring-boot:repackage` to build a single jar in the target diectory of the service module that can be executed as `java -jar CreditCardValidate.jar`
 
 
 The API has two endoints;
 
 1. `creditcard/validate` that accepts `ccardNumber` as a parameter and returns a reponce as `xxx xxx xxx xxx is invalid`
-
 2. `creditcard/isValid/{cardnumber}`  and returns a reponce either `200` for valid numbers or `406` for invalid`
 
-and the validator can be tested using mnormal curl commands 
+and the validator can be tested using the following curl commands 
 
 
 + curl --request POST --url 'http://localhost:8080/creditcard/validate?ccardNumber=222222222' `Invalid`

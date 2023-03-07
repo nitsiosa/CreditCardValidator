@@ -26,12 +26,12 @@ public class LuhnCreditCardNumberValidator implements CreditCardNumberValidator 
 	/**
 	 * <p>This is the implementation of the isValid of the  CreditCardNumberValidator using he Luhn Algorithm
 	 * </p>
-	 * @param String containing the credit card number 
+	 * @param ccardNumber String containing the credit card number 
 	 * @return boolean if the credit card is valid 
 	 * @since 1.0
 	 */ 
     @Override
-    public boolean isValid(String ccardNumber) {
+    public boolean isValid(String ccardNumber) throws CreditCardValidationException{
     	
     	if(log.isDebugEnabled()) {
 			log.debug(String.format("Validating card number %s",ccardNumber));
