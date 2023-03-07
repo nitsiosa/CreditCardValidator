@@ -32,7 +32,7 @@ class CreditCardControllerTest {
 	void testValidCreditCardNumber() {
 		String number = "49927398716";
 		when(processor.isValid(anyString())).thenReturn(true);
-		ResponseEntity<String> response = controller.validate(number);
+		ResponseEntity<String> response = controller.isValid(number);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertEquals("Valid", response.getBody());
 	}
@@ -41,22 +41,22 @@ class CreditCardControllerTest {
 	void testInvalidCreditCardNumber() {
 		String number = "49927398717";
 		when(processor.isValid(anyString())).thenReturn(false);
-		ResponseEntity<String> response = controller.validate(number);
+		ResponseEntity<String> response = controller.isValid(number);
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 		assertEquals("Invalid", response.getBody());
 	}
 
-	@Test
+	@Test  
     void testNullCreditCardNumber() {
         when(processor.isValid(anyString())).thenThrow(new CreditCardValidationException("Credit card number is null or empty"));
-        ResponseEntity<String> response = controller.validate(null);
+        ResponseEntity<String> response = controller.isValid(null);
         assertEquals(HttpStatus.BAD_REQUEST,response.getStatusCode());
     }
 
 	@Test
     void testEmptyCreditCardNumber() {
         when(processor.isValid(anyString())).thenThrow(new CreditCardValidationException("Credit card number is null or empty"));
-        ResponseEntity<String> response = controller.validate("");
+        ResponseEntity<String> response = controller.isValid("");
         assertEquals(HttpStatus.BAD_REQUEST,response.getStatusCode());
     }
 

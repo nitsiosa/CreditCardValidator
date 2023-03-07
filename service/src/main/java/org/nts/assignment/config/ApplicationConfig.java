@@ -9,7 +9,9 @@ import org.nts.assignment.creditcard.validator.CreditCardNumberValidator;
 import org.nts.assignment.creditcard.validator.LuhnCreditCardNumberValidator;
 import org.nts.assignment.processor.CreditCardProcessor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class ApplicationConfig {
 	@Bean
 	public CreditCardNumberBeautifier defaultCreditCardNumberBeautifier() {
@@ -32,8 +34,9 @@ public class ApplicationConfig {
 		return new CreditCardProcessor(beautifier, cleanser, validator);
 	}
 
-	@Bean
-	public CreditCardController creditCardController(CreditCardProcessor processor) {
-		return new CreditCardController(processor);
-	}
+//	@Bean
+//	public CreditCardController controller(CreditCardProcessor processor) {
+//		return new CreditCardController(processor);
+//	}
 }
+ 

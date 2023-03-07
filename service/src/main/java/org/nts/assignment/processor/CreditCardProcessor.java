@@ -30,4 +30,4 @@ public class CreditCardProcessor {
         String cleansed = cleanser.cleanse(ccardNumber);
         return validator.isValid(cleansed);
     }
-}
+} 
